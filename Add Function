@@ -1,0 +1,24 @@
+def write_to_file(text):
+    with open('devicelist.txt', 'a') as file:
+        file.writelines('\n' + text)
+
+def add_function():
+    with open('devicelist.txt') as file:
+        text = input("Add a device: ")
+        fileList = file.read().split()
+        if text not in fileList:
+            fileList.append(text)
+            write_to_file(text)
+            # with open('devicelist.txt','a') as file:
+            #     file.writelines('\n'+text)
+            print('new device {} has been added'.format(text))
+            print('Device list is',fileList)
+        else:
+            msg = input('You have entered device {} that is already existed in device list.'
+                        'Do you want to continue adding? ')
+            if msg == "Yes" or "YES":
+                write_to_file(text)
+                print('new device {} has been added'.format(text))
+            else:
+                msg == "No" or "NO"
+            print(fileList)
