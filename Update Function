@@ -1,0 +1,10 @@
+def update_function():
+    with open("devices.txt", 'r+') as f:
+        text1 = string1
+        text = f.read()
+        update = str(input('The update device is: '))
+        text = re.sub(text1,update,text)
+        f.seek(0)
+        f.write(text)
+        f.truncate()
+        print('The device is updated')
